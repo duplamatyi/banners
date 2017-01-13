@@ -1,0 +1,23 @@
+version: '2.1'
+services:
+  redis:
+    image: redis:3.2.6
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/var/lib/redis/data
+
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/banners
+    ports:
+      - "3000:3000"
+    env_file:
+      - .banners.env
+    depends_on:
+      - redis
+
+volumes:
+  redis-data: {}

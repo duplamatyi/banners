@@ -8,7 +8,7 @@ namespace :'campaigns' do
     banners = Campaign::Builder.new.build campaigns
     unless 'test' == Rails.env
       redis = Redis.new
-      redis.flushall
+      redis.flushdb
       banners.each do |campaign_id, banner_ids|
         redis.lpush campaign_id, banner_ids
       end

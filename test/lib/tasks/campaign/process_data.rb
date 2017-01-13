@@ -1,5 +1,6 @@
 class ProcessDataTest < ActiveSupport::TestCase
   setup do
+    ENV['REDIS_URL'] = 'redis://redis:6379/2'
     Campaign::Application.load_tasks
   end
 

@@ -5,14 +5,8 @@ class CampaignsController < ApplicationController
     if count > 0
       session_key = "campaign#{params[:id]}"
       session[session_key] ||= 0
-
-      @banner_id = redis.lindex(params[:id], count - session[session_key] - 1)
-
-      if session[session_key] < count
-        session[session_key] += 1
-      else
-        session[session_key] = 0
-      end
+      @banner_id = redis.lindex(params[:id], session[session_key])
+      session[session_key] = (session[session_key] + 1) % 10
     else
       render status: :not_found
     end

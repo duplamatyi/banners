@@ -6,11 +6,11 @@ class UsageTest < ActionDispatch::IntegrationTest
   end
 
   test "should display the banners in sequence for unique visitor" do
-    for visit_count in 0..10 do
+    (0..20).to_a.each do |visit_count|
       get campaigns_url 0
       assert_response :success
-      assert_select 'h1', {count: 1} do |header|
-        assert_equal header.text.to_i, (visit_count % 10)
+      assert_select 'h1', {count: 1} do |h1|
+        assert_equal h1.text.to_i, ((9 - visit_count) % 10)
       end
     end
   end

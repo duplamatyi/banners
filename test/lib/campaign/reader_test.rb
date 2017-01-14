@@ -20,9 +20,9 @@ class ReaderTest < ActiveSupport::TestCase
   end
 
   test "should calculate the revenue for a banner in a campaign" do
-    assert_in_delta @campaigns['0']['2'][:revenue], 4.5, 0.05
-    assert_in_delta @campaigns['1']['1'][:revenue], 4.0, 0.05
-    assert_in_delta @campaigns['1']['2'][:revenue], 13.0, 0.05
-    assert_in_delta @campaigns['0']['3'][:revenue], 0.0, 0.05
+    assert_in_delta @campaigns['0']['2'][:revenue], 3.0, 0.05
+    assert_in_delta @campaigns['1']['1'][:revenue], 8.0, 0.05
+    assert_in_delta @campaigns['1']['0'][:revenue], 0.0, 0.05
+    assert_in_delta @campaigns['1']['2'][:revenue], 4.5, 0.05
   end
 end

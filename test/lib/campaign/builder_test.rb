@@ -28,18 +28,21 @@ class BuilderTest < ActiveSupport::TestCase
 
   test "should get 5 banners consisting the most clicked banners and random banners when x = 0" do
     assert_equal 5, @banners['3'].length
-    %w(41 43 44).each do |id|
+    %w(41 43).each do |id|
       assert_includes @banners['3'], id
     end
   end
 
   test "should select banners in a random order" do
+    # This assertion tests randomness. It might fail with a probability of 1/10!. (1 out of 3,628,800)
     assert_not_equal @banners['0'], @banners2['0']
   end
 
   test "should pick the banners with 0 clicks randomly" do
-    rand_banners = @banners['3'].select{ |item| ! %w(41 43 44).include?(item) }
-    rand_banners2 = @banners2['3'].select{ |item| ! %w(41 43 44).include?(item) }
+    rand_banners = @banners['3'].select{ |item| ! %w(41 43).include?(item) }
+    rand_banners2 = @banners2['3'].select{ |item| ! %w(41 43).include?(item) }
+    # This assertion tests randomness. It might fail with a probability of
+    # chosing randomly 3 elements out of 20 (1 out of 1,140)
     assert_not_equal rand_banners.sort, rand_banners2.sort
   end
 
@@ -104,13 +107,22 @@ class BuilderTest < ActiveSupport::TestCase
         '41' => { clicks: 21, revenue: 0.0 },
         '42' => { clicks:  0, revenue: 0.0 },
         '43' => { clicks: 55, revenue: 0.0 },
-        '44' => { clicks: 33, revenue: 0.0 },
+        '44' => { clicks:  0, revenue: 0.0 },
+        '45' => { clicks:  0, revenue: 0.0 },
         '46' => { clicks:  0, revenue: 0.0 },
         '47' => { clicks:  0, revenue: 0.0 },
         '48' => { clicks:  0, revenue: 0.0 },
         '49' => { clicks:  0, revenue: 0.0 },
         '50' => { clicks:  0, revenue: 0.0 },
         '51' => { clicks:  0, revenue: 0.0 },
+        '52' => { clicks:  0, revenue: 0.0 },
+        '53' => { clicks:  0, revenue: 0.0 },
+        '54' => { clicks:  0, revenue: 0.0 },
+        '55' => { clicks:  0, revenue: 0.0 },
+        '56' => { clicks:  0, revenue: 0.0 },
+        '57' => { clicks:  0, revenue: 0.0 },
+        '58' => { clicks:  0, revenue: 0.0 },
+        '59' => { clicks:  0, revenue: 0.0 },
     }
   end
 end

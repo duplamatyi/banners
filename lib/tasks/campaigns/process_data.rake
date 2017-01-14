@@ -6,12 +6,10 @@ namespace :'campaigns' do
     path = args[:path].nil? ? Rails.root.join('assignment/data') : Pathname.new(args[:path])
     campaigns = Campaign::Reader.new.parse path
     banners = Campaign::Builder.new.build campaigns
-    unless 'test' == Rails.env
-      redis = Redis.new
-      redis.flushdb
-      banners.each do |campaign_id, banner_ids|
-        redis.lpush campaign_id, banner_ids
-      end
+    redis = Redis.new
+    redis.flushdb
+    banners.each do |campaign_id, banner_ids|
+      redis.lpush campaign_id, banner_ids
     end
   end
 end

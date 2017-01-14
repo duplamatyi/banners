@@ -12,9 +12,9 @@ class CampaignsControllerTest < ActionDispatch::IntegrationTest
   end
 
 
-  test "should get campaign and should not display banner" do
+  test "should return not found status code if campaign is not found" do
     get campaigns_url 3
-    assert_response :success
-    assert_select 'h1', {count: 1, text: 'Not Found'}
+    assert_response :not_found
+    assert_select 'h1', {count: 1, empty: true}
   end
 end

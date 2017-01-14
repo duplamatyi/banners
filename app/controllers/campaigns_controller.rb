@@ -14,7 +14,7 @@ class CampaignsController < ApplicationController
         session[session_key] = 0
       end
     else
-      @banner_id = 'Not Found'
+      render status: :not_found
     end
   end
 end

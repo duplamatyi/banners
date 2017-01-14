@@ -12,7 +12,7 @@ module RedisSeeder
   def seed_redis
     return if @@seeded
 
-    ENV['REDIS_URL'] = 'redis://redis:6379/1'
+    ENV['REDIS_URL'] = ENV.key?('REDIS_URL') ? 'redis://redis:6379/1' : 'redis://localhost:6379/1'
     redis = Redis.new
     redis.flushdb
     redis.lpush 0, (0..9).to_a

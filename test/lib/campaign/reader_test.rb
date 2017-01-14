@@ -23,6 +23,6 @@ class ReaderTest < ActiveSupport::TestCase
     assert_in_delta @campaigns['0']['2'][:revenue], 3.0, 0.05
     assert_in_delta @campaigns['1']['1'][:revenue], 8.0, 0.05
     assert_in_delta @campaigns['1']['0'][:revenue], 0.0, 0.05
-    assert_in_delta @campaigns['1']['2'][:revenue], 4.5, 0.05
+    assert_in_delta @campaigns['1']['2'][:revenue], 2.5, 0.05
   end
 end

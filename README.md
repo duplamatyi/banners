@@ -30,6 +30,7 @@ from a Linux machine, I always would chose *Docker* over Vagrant.
 
 # Acceptance
 The lines below assume you don't need sudo for the docker or docker-compose commands. If you do need, use either sudo or [add your user to the docker group](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/manage-docker-as-a-non-root-user).
+
 Cloning the repository:
 ```bash
 git clone git@github.com:duplamatyi/banners.git .

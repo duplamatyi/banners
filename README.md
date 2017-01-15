@@ -1,7 +1,9 @@
 # Assignment
 This project processes ad campaign data from CSV files and displays banners based on revenue and clicks for a given campaign. The assignment is presented in [assignment.pdf](https://github.com/duplamatyi/banners/blob/master/assignment/test%20assingment.pdf).
+
 # Solution
 Here you can read about the technical details of the solution.
+
 ## Analysis
 A working solution of the problem consists of the following:
 * processing the data
@@ -10,7 +12,8 @@ A working solution of the problem consists of the following:
 * displaying the banners
 * testing the solution
 * isolating the environment
-## Code stack choice explanation
+
+## Code stack choice
 * *Rails*, Sinatra or any other MVC Ruby framework would have been an equally good choice.
 I chose Rails, because of it's convention over configuration approach and the quickness of
 the development process when generating and starting up a new project. It's also highly configurable
@@ -24,7 +27,8 @@ and functional tests.
 * For isolation I used *Docker* beacuse it's more lightweight. While Vagrant is a virtual box management tool,
 *Docker* isolates application containers at Linux Kernel level. Unless I have to develop in a non-Linux environment
 from a Linux machine, I always would chose *Docker* over Vagrant.
-# How to check acceptance
+
+# Acceptance
 The lines below assume you don't need sudo for the docker or docker-compose commands. If you do need, use either sudo or [add your user to the docker group](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/manage-docker-as-a-non-root-user).
 Cloning the repository:
 ```bash

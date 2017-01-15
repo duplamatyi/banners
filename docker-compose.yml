@@ -18,6 +18,7 @@ services:
       - .banners.env
     depends_on:
       - redis
+    container_name: banners-web
 
 volumes:
   redis-data: {}

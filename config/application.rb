@@ -22,6 +22,7 @@ module Banners
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # Adds lib to the autoload paths.
     config.autoload_paths << "#{Rails.root}/lib"
   end
 end

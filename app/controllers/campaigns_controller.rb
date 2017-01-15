@@ -1,4 +1,10 @@
 class CampaignsController < ApplicationController
+  # Displays a banner id for a given campaign id.
+  # - First checks the index of the last displayed banner for a given user based
+  #   on tha value stored in a hash in Redis.
+  # - Than retrieves the id of the next banner from a list of banner ids from Redis.
+  # - If the campaign has no banners it sets
+  #   the 404 status code for the response.
   def show
     redis = Redis.current
     banner_list_key = "banner-list:#{params[:id]}"

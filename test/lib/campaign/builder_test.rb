@@ -48,6 +48,8 @@ class BuilderTest < ActiveSupport::TestCase
 
   private
 
+  # Builds test data in the format required by the Campaign::Builder.build method.
+  # Covers all 4 possible scenarios depending on the revenue and click count of the banners.
   def build_cases
     @campaigns = {}
 

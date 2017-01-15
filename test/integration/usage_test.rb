@@ -6,6 +6,7 @@ class UsageTest < ActionDispatch::IntegrationTest
   end
 
   test "should display the banners in sequence for unique visitor" do
+    # Simulates 21 visits to a campaign and checks if the banners were displayed in sequence.
     (0..20).to_a.each do |visit_count|
       get campaigns_url 0
       assert_response :success

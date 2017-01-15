@@ -8,6 +8,7 @@ end
 
 module RedisSeeder
 
+  # Seeds Redis with test data.
   def seed_redis
     redis = Redis.current
     redis.flushall
@@ -17,6 +18,8 @@ module RedisSeeder
   end
 end
 
+# Controller and integration test that inherit from ActionDispatch::IntegrationTest
+# can call the seed_redis method in their setup.
 class ActionDispatch::IntegrationTest
   include RedisSeeder
 end

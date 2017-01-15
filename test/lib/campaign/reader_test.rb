@@ -1,4 +1,5 @@
 class ReaderTest < ActiveSupport::TestCase
+  # Parses the files with the test data.
   setup do
     path = Rails.root.join('test/data')
     reader = Campaign::Reader.new

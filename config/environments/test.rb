@@ -39,4 +39,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # If REDIS_TEST_TCP_URL env variable not set try on localhost to db 1
+  config.redis_url = ENV['REDIS_TEST_TCP_URL'] || 'redis://localhost:6379/1'
 end

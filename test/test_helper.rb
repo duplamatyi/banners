@@ -11,7 +11,7 @@ module RedisSeeder
   # Seeds Redis with test data.
   def seed_redis
     redis = Redis.current
-    redis.flushall
+    redis.flushdb
     redis.lpush 'banner-list:0', (0..9).to_a
     redis.lpush 'banner-list:1', [10, 11]
     redis.lpush 'banner-list:2', [12]

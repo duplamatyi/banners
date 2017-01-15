@@ -24,5 +24,8 @@ module Banners
 
     # Adds lib to the autoload paths.
     config.autoload_paths << "#{Rails.root}/lib"
+
+    # If REDIS_TCP_URL env variable not set try on localhost to db 0
+    config.redis_url = ENV['REDIS_TCP_URL'] || 'redis://localhost:6379/0'
   end
 end

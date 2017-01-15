@@ -15,4 +15,25 @@ class UsageTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  test "should display the banners in separate sequence for two separate visitors" do
+    sess1 = open_session
+    sess2 = open_session
+
+    sess1.get '/campaigns/0'
+    assert_equal 200, sess1.response.status
+    assert_match /<h1>9<\/h1>/, sess1.response.body
+
+    sess2.get '/campaigns/0'
+    assert_equal 200, sess2.response.status
+    assert_match /<h1>9<\/h1>/, sess2.response.body
+
+    sess1.get '/campaigns/0'
+    assert_equal 200, sess1.response.status
+    assert_match /<h1>8<\/h1>/, sess1.response.body
+
+    sess2.get '/campaigns/0'
+    assert_equal 200, sess2.response.status
+    assert_match /<h1>8<\/h1>/, sess2.response.body
+  end
 end
